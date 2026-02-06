@@ -19,6 +19,18 @@ class ProductController {
       res.status(400).json({ message: err.message });
     }
   }
+
+  async searchProducts(req, res) {
+    try {
+      const { term } = req.query;
+      if (!term)
+        return res.status(400).json({ message: "Search term required" });
+      const products = await ProductService.searchProducts(term);
+      res.status(200).json(products);
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  }
 }
 
 export default new ProductController();

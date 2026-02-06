@@ -13,6 +13,13 @@ class ProductService {
     const product = new Product(data);
     return await product.save();
   }
+
+  async searchProducts(key) {
+    const regex = new RegExp(key, "i");
+    return await Product.find({
+      $or: [{ name: regex }, { category: regex }],
+    });
+  }
 }
 
 export default new ProductService();
