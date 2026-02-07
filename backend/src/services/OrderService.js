@@ -1,15 +1,12 @@
 import Order from "../models/Order.js";
 import Product from "../models/Product.js";
+
 class OrderService {
   async createOrder(userId, orderItems, totalPrice) {
     const updateStock = orderItems.map((item) => {
       return Product.updateOne(
-        {
-          _id: item.Product,
-        },
-        {
-          $inc: { stock: -item.qty },
-        },
+        { _id: item.product },
+        { $inc: { countInStock: -item.qty } },
       );
     });
 
@@ -21,12 +18,13 @@ class OrderService {
       totalPrice,
       isPaid: false,
     });
+
     return await order.save();
   }
 
   async getUserOrders(userId) {
     return await Order.find({ user: userId }).populate(
-      "orderItems.Product",
+      "orderItems.product",
       "name price",
     );
   }
@@ -35,4 +33,5 @@ class OrderService {
     return await Order.find().populate("user", "name email");
   }
 }
+
 export default new OrderService();
