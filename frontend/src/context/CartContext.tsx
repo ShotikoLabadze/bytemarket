@@ -19,13 +19,12 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [cart, setCart] = useState<CartItem[]>([]);
-  const [totalPrice, setTotalPrice] = useState(0);
-
-  useEffect(() => {
+  const [cart, setCart] = useState<CartItem[]>(() => {
     const stored = localStorage.getItem("cart");
-    if (stored) setCart(JSON.parse(stored));
-  }, []);
+    return stored ? JSON.parse(stored) : [];
+  });
+
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -41,6 +40,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
           i.productId === item._id ? { ...i, qty: i.qty + 1 } : i,
         );
       }
+
       return [...prev, { ...item, productId: item._id, qty: 1 }];
     });
   };

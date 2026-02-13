@@ -1,0 +1,129 @@
+.cartItem {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: var(--transition-fast);
+}
+
+.cartItem:hover {
+  border-color: var(--border-light);
+}
+
+.itemImage {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.itemDetails {
+  flex: 1;
+  min-width: 0;
+}
+
+.itemName {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--text-main);
+}
+
+.itemCategory {
+  font-size: 12px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.itemControls {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.quantityControl {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.qtyBtn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card);
+  color: var(--text-dim);
+  font-size: 16px;
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.qtyBtn:hover {
+  background: var(--card-hover);
+  color: var(--text-main);
+}
+
+.qtyValue {
+  width: 40px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+  background: transparent;
+}
+
+.itemPrice {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-main);
+  min-width: 70px;
+  text-align: right;
+}
+
+.removeBtn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--text-dim);
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.removeBtn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+}
+
+.removeBtnIcon {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 640px) {
+  .cartItem {
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .itemControls {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
