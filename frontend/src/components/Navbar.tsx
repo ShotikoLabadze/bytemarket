@@ -3,7 +3,11 @@ import styles from "../styles/Navbar.module.css";
 import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
 
-const Navbar = () => {
+interface NavbarProps {
+  onSearch?: (query: string) => void;
+}
+
+const Navbar = ({ onSearch }: NavbarProps) => {
   const { cart } = useCart();
   const { user, logout } = useAuth();
 
@@ -49,6 +53,7 @@ const Navbar = () => {
             type="text"
             placeholder="Search tech..."
             className={styles.searchInput}
+            onChange={(e) => onSearch?.(e.target.value)}
           />
         </div>
 
