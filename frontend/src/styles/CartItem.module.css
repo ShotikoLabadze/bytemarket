@@ -127,3 +127,26 @@
     justify-content: space-between;
   }
 }
+
+.itemImageContainer {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--card-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.cartItem:hover .productImage {
+  transform: scale(1.05);
+}

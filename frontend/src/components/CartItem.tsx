@@ -6,8 +6,7 @@ export interface CartItemData {
   category: string;
   price: number;
   qty: number;
-  gradient?: string;
-  icon?: string;
+  image: string;
 }
 
 interface CartItemProps {
@@ -19,16 +18,23 @@ interface CartItemProps {
 const CartItem = ({ item, onUpdateQuantity, onRemoveItem }: CartItemProps) => {
   return (
     <div className={styles.cartItem}>
-      <div
-        className={styles.itemImage}
-        style={{ background: item.gradient || "#333" }}
-      >
-        {item.icon || "📦"}
+      <div className={styles.itemImageContainer}>
+        <img
+          src={item.image}
+          alt={item.name}
+          className={styles.productImage}
+          onError={(e) => {
+            (e.target as HTMLImageElement).src =
+              "https://via.placeholder.com/150?text=No+Image";
+          }}
+        />
       </div>
+
       <div className={styles.itemDetails}>
         <div className={styles.itemName}>{item.name}</div>
         <div className={styles.itemCategory}>{item.category}</div>
       </div>
+
       <div className={styles.itemControls}>
         <div className={styles.quantityControl}>
           <button
