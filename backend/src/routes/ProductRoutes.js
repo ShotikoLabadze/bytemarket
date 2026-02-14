@@ -12,5 +12,6 @@ router.post(
   AdminMiddleware,
   ProductController.createProduct,
 );
+router.get("/:id", ProductController.getById);
 
 export default router;

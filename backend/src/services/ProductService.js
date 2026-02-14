@@ -20,6 +20,10 @@ class ProductService {
       $or: [{ name: regex }, { category: regex }],
     });
   }
+
+  async getById(id) {
+    return await Product.findById(id);
+  }
 }
 
 export default new ProductService();
