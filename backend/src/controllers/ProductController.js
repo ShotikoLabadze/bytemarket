@@ -3,8 +3,8 @@ import ProductService from "../services/ProductService.js";
 class ProductController {
   async getProducts(req, res) {
     try {
-      const { category } = req.query;
-      const products = await ProductService.getProducts({ category });
+      const { category, sort } = req.query;
+      const products = await ProductService.getProducts({ category, sort });
       res.status(200).json(products);
     } catch (err) {
       res.status(500).json({ message: err.message });

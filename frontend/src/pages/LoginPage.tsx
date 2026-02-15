@@ -77,7 +77,6 @@ const LoginPage = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <span className={styles.forgotLink}>Forgot password?</span>
           </div>
 
           <button

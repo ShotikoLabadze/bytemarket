@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+.pageWrapper {
+  min-height: 100vh;
+  background-color: var(--bg);
+  padding: 0 2rem 2rem;
+  font-family: var(--font);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.filterBar {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.75rem 0;
+  margin-bottom: 1rem;
+}
+
+.selectGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.selectGroup label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-dim);
+}
+
+.selectGroup select {
+  background-color: var(--card);
+  color: var(--text-main);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xs);
+  padding: 0.4rem 2rem 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  appearance: auto;
+}
+
+.selectGroup select:hover {
+  border-color: var(--accent);
+  background-color: var(--card-hover);
+}
+
+.selectGroup select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-glow);
+}
+
+.selectGroup select option {
+  background-color: var(--card);
+  color: var(--text-main);
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: var(--text-dim);
+  font-size: 1.1rem;
+  background-color: var(--bg);
+}

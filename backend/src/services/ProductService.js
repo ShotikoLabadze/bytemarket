@@ -4,9 +4,21 @@ class ProductService {
   async getProducts(filter = {}) {
     const query = {};
 
-    if (filter.category) query.category = filter.category;
+    if (filter.category && filter.category !== "All") {
+      query.category = filter.category;
+    }
 
-    return await Product.find(query);
+    let mongooseQuery = Product.find(query);
+
+    if (filter.sort === "asc") {
+      mongooseQuery = mongooseQuery.sort({ price: 1 });
+    } else if (filter.sort === "desc") {
+      mongooseQuery = mongooseQuery.sort({ price: -1 });
+    } else {
+      mongooseQuery = mongooseQuery.sort({ createdAt: -1 });
+    }
+
+    return await mongooseQuery;
   }
 
   async createProduct(data) {
