@@ -9,7 +9,7 @@ interface ProductCardProps {
   onView?: (product: Product) => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product, onView }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { addToCart } = useCart();
 
   const handleAddToCart = () => {
