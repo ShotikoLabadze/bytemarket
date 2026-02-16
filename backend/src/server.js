@@ -17,6 +17,5 @@ app.use(express.json());
 app.use("/api/users", UserRoutes);
 app.use("/api/products", ProductRoutes);
 app.use("/api/orders", OrderRoutes);
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+
+export default app;
