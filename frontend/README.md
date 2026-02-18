@@ -1,73 +1,75 @@
-# React + TypeScript + Vite
+# ByteMarket | Full Stack Tech E-Commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-performance tech marketplace built with React (TypeScript) and Node.js (Express + MongoDB).
+Users can browse high-end PC components, manage a shopping cart, and access a secure admin dashboard with a modern, "tech-first" UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Screenshots
 
-## React Compiler
+### Home Page
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+![Home Page](screenshots/mainPage.png)
 
-## Expanding the ESLint configuration
+### Shopping Cart
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+![Shopping Cart](screenshots/cart.png)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- User registration (username, email, password)
+- JWT login authentication & protected routes
+- Dynamic product search and category filtering
+- Real-time cart management (Add / Delete / Update)
+- Automatic tax and shipping calculations
+- Admin dashboard for inventory management
+- Responsive layout for all devices
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Prerequisites
+
+- Node.js + npm
+- MongoDB database (local or hosted)
+
+---
+
+### Backend Setup
+
+# 1. Navigate to the server folder
+
+cd server
+
+# 2. Install dependencies
+
+npm install
+
+# 3. Create a .env file in server/
+
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret
+
+# 4. Start Backend Server
+
+npm run dev
+
+---
+
+### Frontend Setup
+
+# 1. Navigate to the client folder
+
+cd client
+
+# 2. Install dependencies
+
+npm install
+
+# 3. Start the development server
+
+npm run dev
